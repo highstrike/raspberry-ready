@@ -77,7 +77,7 @@ button.on('alert', (level) => {
     }
 
     if (level === 1) {
-        exec('sudo sleep 1 && /sbin/shutdown -h now');
+        exec(`echo 'true' > /shutdown_signal`);
         process.exit();
     }
 });
