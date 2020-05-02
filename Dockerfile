@@ -10,13 +10,14 @@ RUN apk --update --no-cache add --virtual dependencies curl build-base python &&
     | tar -xz --strip-components=1 && \
     make && \
     sed -i 's/ldconfig/ldconfig \/usr\/local/g' Makefile && \
-    make install && \
-    rm -rf /tmp/*
+    make install
 
 WORKDIR /app
 
 COPY package.json /app
-RUN npm install
+RUN npm install --production && \
+    apk del dependencies && \
+    rm -rf /tmp/*
 
 COPY start.js /app
 CMD ["npm", "start"]
