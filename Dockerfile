@@ -16,7 +16,7 @@ RUN apk --update --no-cache add --virtual dependencies curl build-base python &&
 WORKDIR /app
 
 COPY package.json /app
-COPY start.js /app
-
 RUN npm install
+
+COPY start.js /app
 CMD ["npm", "start"]
