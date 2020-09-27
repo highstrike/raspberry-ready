@@ -23,21 +23,37 @@ The script I use when my raspberry pi turns on.
 `sudo pip3 install docker-compose`
 
 ## Run on startup
-1. Open rc.local  
-`sudo nano /etc/rc.local`
+1. Symlink `/etc/rc.local` to ~  
+`ln -s /etc/rc.local startup`
 
-2. Before exit add scripts  
+2. Open startup  
+`sudo nano startup`
+
+3. Before exit add scripts (important: we need the `--privileged` flag so that we can access GPIO from the container)  
 ```
 # Run ready scripts
 sudo /home/pi/./shutdown-script.sh &
-docker run -itd --privileged -v /var/run/shutdown_signal:/shutdown_signal highstrike/raspberry-ready:v1.0.7
+docker run -d --privileged -v /var/run/shutdown_signal:/shutdown_signal highstrike/raspberry-ready:v1.0.7
 ```
 
-3. Add script to ~  
+4. Add script to ~  
 ```
 touch shutdown-script.sh
 chmod +x shutdown-script.sh
 nano shutdown-script.sh
 ```
 
-4. Copy paste the script it from [here](https://github.com/highstrike/raspberry/blob/master/shutdown-script.sh)
+5. Copy paste the script it from [here](https://github.com/highstrike/raspberry/blob/master/shutdown-script.sh)
+
+## Updating
+
+1. Update system  
+```
+sudo apt update
+sudo apt full-upgrade
+sudo apt autoremove
+sudo apt clean
+```
+
+2. Update docker-compose  
+`sudo pip3 install --upgrade docker-compose`
