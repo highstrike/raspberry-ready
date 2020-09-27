@@ -23,7 +23,7 @@ The script I use when my raspberry pi turns on.
 `sudo pip3 install docker-compose`
 
 ## Run on startup
-1. Symlink `/etc/rc.local` to ~  
+1. Symlink /etc/rc.local to ~  
 `ln -s /etc/rc.local startup`
 
 2. Open startup  
