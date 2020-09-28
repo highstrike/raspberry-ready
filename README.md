@@ -77,7 +77,7 @@ arm_freq=2000
 ```
 # Run ready scripts
 sudo /home/pi/./shutdown-script.sh &
-docker run -d --privileged -v /var/run/shutdown_signal:/shutdown_signal highstrike/raspberry-ready:v1.0.7
+docker run --privileged --name ready -d -v /var/run/shutdown_signal:/shutdown_signal highstrike/raspberry-ready:v1.0.7
 ```
 
 4. Add script to ~  
@@ -98,6 +98,9 @@ nano shutdown-script.sh
 
 - check temperature  
 `/opt/vc/bin/vcgencmd measure_temp`
+
+- check fanspeed  
+`docker logs ready -f`
 
 - install git  
 `sudo apt install git`
