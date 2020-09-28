@@ -4,7 +4,7 @@ The script I use when my raspberry pi turns on.
 ## Setup the berry (headless)
 1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/) and flash the latest lite version onto a sdcard
 
-2. Create an empty SSH file in the boot partition to enable SSH
+2. Create an empty SSH file in the boot partition
 
 3. Create a file called wpa_supplicant.conf in the boot partition with the contents  
 ```
@@ -17,6 +17,12 @@ network={
   psk="<SECRET_PASS_HERE>"
 }
 ```
+
+4. SSH into your raspberry pi (default password is raspberry)  
+`ssh pi@raspberrypi`
+
+5. Configure away  
+`sudo raspi-config`
 
 ## Instalation
 1. Install docker  
