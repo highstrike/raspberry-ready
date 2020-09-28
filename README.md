@@ -21,7 +21,15 @@ network={
 4. SSH into your device (default password is `raspberry`)  
 `ssh pi@raspberrypi`
 
-5. Configure away  
+5. Update software / firmware
+```
+sudo apt update
+sudo apt full-upgrade
+sudo apt autoremove
+sudo apt clean
+```
+
+6. Configure away  
 `sudo raspi-config`
 
 ## Instalation
