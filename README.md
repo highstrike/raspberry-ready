@@ -29,8 +29,11 @@ sudo apt autoremove
 sudo apt clean
 ```
 
-6. Configure away  
+6. Change default password and timezone  
 `sudo raspi-config`
+
+7. Reboot
+`sudo reboot`
 
 ## Overclock
 1. Open the config file  
