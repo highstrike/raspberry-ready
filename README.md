@@ -109,3 +109,7 @@ nano shutdown-script.sh
 `ssh-keygen -t rsa -b 4096 -C "highstrike@gmail.com"`  
 `cat ~/.ssh/id_rsa.pub` and add it to github / settings / ssh / new ssh key  
 `ssh -T git@github.com` to test connection
+
+- benchmarking  
+`sudo apt install sysbench`  
+`sysbench --test=cpu --cpu-max-prime=50000 --num-threads=4 run`
