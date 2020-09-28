@@ -2,7 +2,7 @@
 The script I use when my raspberry pi turns on.
 
 ## Setup (headless)
-1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/) and flash the latest lite version onto a sdcard  
+1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/) and flash the latest lite version onto an sdcard  
 
 2. Create an empty SSH file in the boot partition  
 
