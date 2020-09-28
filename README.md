@@ -96,10 +96,13 @@ nano shutdown-script.sh
 - check frequency  
 `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq`
 
+- check temperature
+`/opt/vc/bin/vcgencmd measure_temp`
+
 - install git  
 `sudo apt install git`
 
 - github ssh key  
 `ssh-keygen -t rsa -b 4096 -C "highstrike@gmail.com"`  
-`cat ~/.ssh/id_rsa.pub` and add it to github / settings / ssh / new ssh key
+`cat ~/.ssh/id_rsa.pub` and add it to github / settings / ssh / new ssh key  
 `ssh -T git@github.com` to test connection
