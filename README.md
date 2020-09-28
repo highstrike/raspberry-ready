@@ -91,3 +91,15 @@ nano shutdown-script.sh
 
 6. Reboot  
 `sudo reboot`
+
+## Other
+- check frequency  
+`cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq`
+
+- install git  
+`sudo apt install git`
+
+- github ssh key  
+`ssh-keygen -t rsa -b 4096 -C "highstrike@gmail.com"`  
+`cat ~/.ssh/id_rsa.pub` and add it to github / settings / ssh / new ssh key
+`ssh -T git@github.com` to test connection
