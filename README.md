@@ -88,3 +88,6 @@ nano shutdown-script.sh
 ```
 
 5. Copy paste the script it from [here](https://github.com/highstrike/raspberry/blob/master/shutdown-script.sh)
+
+6. Reboot  
+`sudo reboot`
