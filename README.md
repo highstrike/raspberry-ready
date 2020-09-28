@@ -96,7 +96,7 @@ nano shutdown-script.sh
 - check frequency  
 `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq`
 
-- check temperature
+- check temperature  
 `/opt/vc/bin/vcgencmd measure_temp`
 
 - install git  
