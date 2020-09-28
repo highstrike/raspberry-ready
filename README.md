@@ -88,16 +88,3 @@ nano shutdown-script.sh
 ```
 
 5. Copy paste the script it from [here](https://github.com/highstrike/raspberry/blob/master/shutdown-script.sh)
-
-## Updating
-
-1. Update system  
-```
-sudo apt update
-sudo apt full-upgrade
-sudo apt autoremove
-sudo apt clean
-```
-
-2. Update docker-compose  
-`sudo pip3 install --upgrade docker-compose`
