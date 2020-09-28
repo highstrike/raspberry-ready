@@ -1,6 +1,23 @@
 # raspberry ready
 The script I use when my raspberry pi turns on.
 
+## Setup the berry
+1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/)
+
+2. Create an empty SSH file in the boot partition to enable SSH
+
+3. Create a file called wpa_supplicant.conf in the boot partition with the contents  
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=RO
+
+network={
+  ssid="Unimatrix"
+  psk="<SECRET_PASS_HERE>"
+}
+```
+
 ## Instalation
 1. Install docker  
 `curl -sSL https://get.docker.com | sh`
