@@ -6,7 +6,7 @@ The script I use when my raspberry pi turns on.
 
 2. Create an empty SSH file in the boot partition
 
-3. Create a file called wpa_supplicant.conf in the boot partition with the contents  
+3. Create a file called `wpa_supplicant.conf` in the boot partition with the contents  
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
@@ -18,7 +18,7 @@ network={
 }
 ```
 
-4. SSH into your raspberry pi (default password is raspberry)  
+4. SSH into your device (default password is `raspberry`)  
 `ssh pi@raspberrypi`
 
 5. Configure away  
