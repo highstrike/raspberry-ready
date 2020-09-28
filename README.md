@@ -32,6 +32,16 @@ sudo apt clean
 6. Configure away  
 `sudo raspi-config`
 
+## Overclock
+1. Open the config file  
+`sudo nano /boot/config.txt`
+
+2. Uncomment and add the following lines  
+```
+over_voltage=6
+arm_freq=2000
+```
+
 ## Instalation
 1. Install docker  
 `curl -sSL https://get.docker.com | sh`
