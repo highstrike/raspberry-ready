@@ -99,7 +99,7 @@ nano shutdown-script.sh
 - check temperature  
 `/opt/vc/bin/vcgencmd measure_temp`
 
-- check fanspeed  
+- check fan-speed  
 `docker logs ready -f`
 
 - install git  
