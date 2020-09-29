@@ -77,7 +77,7 @@ arm_freq=2000
 ```
 # Run ready scripts
 sudo /home/pi/./shutdown-script.sh &
-docker run --privileged --name ready -d -v /var/run/shutdown_signal:/shutdown_signal highstrike/raspberry-ready:v1.0.7
+docker run --privileged --rm --name ready -d -v /var/run/shutdown_signal:/shutdown_signal highstrike/raspberry-ready:v1.0.7
 ```
 
 4. Add script to ~  
