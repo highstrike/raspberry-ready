@@ -35,6 +35,14 @@ sudo apt clean
 7. Reboot  
 `sudo reboot`
 
+## Quircks SSD
+1. Find vendor id and product id  
+`sudo lsusb` or ` sudo dmesg | grep usb`  
+
+2. Apply quircks for example `Bus 002 Device 002: ID 152d:0578 JMicron Technology Corp. / JMicron USA Technology Corp. JMS567 SATA 6Gb/s bridge`
+`sudo nano /boot/cmdline.txt`  
+`usb-storage.quirks=152d:0578:u bla-bla-bla`  
+
 ## Overclock
 1. Open the config file  
 `sudo nano /boot/config.txt`
@@ -73,7 +81,7 @@ arm_freq=2000
 2. Open startup  
 `sudo nano startup`
 
-3. Before exit add scripts (important: we need the `--privileged` flag so that we can access GPIO from the container)  
+3. Before exit add scripts (important: the `--privileged` flag is needed in order to access the GPIO from the container)  
 ```
 # Run ready scripts
 sudo /home/pi/./shutdown-script.sh &
@@ -103,7 +111,7 @@ nano shutdown-script.sh
 `docker logs ready -f`
 
 - install git  
-`sudo apt install git`
+`sudo apt install -y git`
 
 - github ssh key  
 `ssh-keygen -t rsa -b 4096 -C "highstrike@gmail.com"`  
@@ -111,5 +119,10 @@ nano shutdown-script.sh
 `ssh -T git@github.com` to test connection
 
 - benchmarking  
-`sudo apt install sysbench`  
-`sysbench --test=cpu --cpu-max-prime=50000 --num-threads=4 run`
+`sudo apt install -y sysbench`  
+`sysbench --test=cpu --cpu-max-prime=50000 --num-threads=4 run` (cpu speed)  
+`sudo curl https://raw.githubusercontent.com/TheRemote/PiBenchmarks/master/Storage.sh | sudo bash` (storage speed)
+
+- block wifi & bluetooth  
+`rfkill block wifi`  
+`rfkill block bluetooth`
