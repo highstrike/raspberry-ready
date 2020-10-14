@@ -2,7 +2,7 @@
 The script I use when my raspberry pi turns on.
 
 ## Setup (headless)
-1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/) and flash the latest lite version onto an sdcard  
+1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/) and flash the latest lite version onto an sdcard or ssd  
 
 2. Create an empty SSH file in the boot partition  
 
@@ -23,9 +23,9 @@ network={
 
 5. Update software / firmware  
 ```
-sudo apt update
-sudo apt full-upgrade
-sudo apt autoremove
+sudo apt update && \
+sudo apt full-upgrade -y && \
+sudo apt autoremove && \
 sudo apt clean
 ```
 
@@ -39,9 +39,14 @@ sudo apt clean
 1. Find vendor id and product id  
 `sudo lsusb` or ` sudo dmesg | grep usb`  
 
-2. Apply quircks for example `Bus 002 Device 002: ID 152d:0578 JMicron Technology Corp. / JMicron USA Technology Corp. JMS567 SATA 6Gb/s bridge`
-`sudo nano /boot/cmdline.txt`  
-`usb-storage.quirks=152d:0578:u bla-bla-bla`  
+2. You should get something like this  
+`Bus 002 Device 002: ID 152d:0578 JMicron Technology Corp. / JMicron USA Technology Corp. JMS567 SATA 6Gb/s bridge`  
+
+3. Open cmdline  
+`sudo nano /boot/cmdline.txt`
+
+4. Apply quircks at the begining of the file  
+`usb-storage.quirks=152d:0578:u`
 
 ## Overclock
 1. Open the config file  
@@ -67,9 +72,10 @@ arm_freq=2000
 `docker run hello-world`
 
 5. Install dependencies for docker-compose  
-`sudo apt install -y libffi-dev libssl-dev`  
-`sudo apt install -y python3 python3-pip`  
-`sudo apt remove python-configparser` (might not be needed)
+```
+sudo apt install -y libffi-dev libssl-dev && \
+sudo apt install -y python3 python3-pip
+```
 
 6. Install docker-compose  
 `sudo pip3 install docker-compose`
@@ -90,8 +96,8 @@ docker run --privileged --rm --name ready -d -v /var/run/shutdown_signal:/shutdo
 
 4. Add script to ~  
 ```
-touch shutdown-script.sh
-chmod +x shutdown-script.sh
+touch shutdown-script.sh && \
+chmod +x shutdown-script.sh && \
 nano shutdown-script.sh
 ```
 
