@@ -119,6 +119,10 @@ nano shutdown-script.sh
 - install git  
 `sudo apt install -y git`
 
+- set git global identity  
+`git config --global user.email "flavius@unimatrix.ro"`  
+`git config --global user.name "highstrike"`
+
 - github ssh key  
 `ssh-keygen -t rsa -b 4096 -C "highstrike@gmail.com"`  
 `cat ~/.ssh/id_rsa.pub` and add it to github / settings / ssh / new ssh key  
