@@ -136,3 +136,7 @@ nano shutdown-script.sh
 - block wifi & bluetooth  
 `rfkill block wifi`  
 `rfkill block bluetooth`
+
+- neofetch
+`sudo wget -O /usr/local/bin/neofetch https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch`
+`sudo chmod a+x /usr/local/bin/neofetch`
