@@ -35,19 +35,6 @@ sudo apt clean
 7. Reboot  
 `sudo reboot`
 
-## Quircks SSD
-1. Find vendor id and product id  
-`sudo lsusb` or ` sudo dmesg | grep usb`  
-
-2. You should get something like this  
-`Bus 002 Device 002: ID 152d:0578 JMicron Technology Corp. / JMicron USA Technology Corp. JMS567 SATA 6Gb/s bridge`  
-
-3. Open cmdline  
-`sudo nano /boot/cmdline.txt`
-
-4. Apply quircks at the begining of the file  
-`usb-storage.quirks=152d:0578:u`
-
 ## Overclock
 1. Open the config file  
 `sudo nano /boot/config.txt`
