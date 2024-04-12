@@ -37,7 +37,7 @@ sudo apt clean
 
 ## Overclock
 1. Open the config file  
-`sudo nano /boot/config.txt`
+`sudo nano /boot/firmware/config.txt`
 
 2. Uncomment and add the following lines  
 ```
