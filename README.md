@@ -55,10 +55,8 @@ docker run --privileged --rm --name ready -d -v /var/run/shutdown_signal:/shutdo
 ```
 
 4. Add script to ~  
-```
-touch shutdown-script.sh && \
-chmod +x shutdown-script.sh && \
-nano shutdown-script.sh
+```bash
+nano shutdown-script.sh && chmod +x $_
 ```
 
 5. Copy paste the script it from [here](https://github.com/highstrike/raspberry/blob/master/shutdown-script.sh)
