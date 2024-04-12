@@ -2,44 +2,32 @@
 The script I use when my raspberry pi turns on.
 
 ## Setup (headless)
-1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/) and flash the latest lite version onto an sdcard or ssd  
+1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/) and flash the latest lite version onto an sdcard or ssd with the following settings:
+   - hostname: raspberrypi
+   - username & password: pi / pass
+   - no wlan
+   - locale: Europe/Bucharest, keyboard: us
+   - enable ssh with password authentication
 
-~~2. Create an empty SSH file in the boot partition~~  
-
-~~3. Create a file called `wpa_supplicant.conf` in the boot partition with the contents~~  
-```
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=RO
-
-network={
-  ssid="Unimatrix"
-  psk="<SECRET_PASS_HERE>"
-}
-```
-
-4. SSH into your device (default password is `raspberry`)  
+2. SSH into your device  
 `ssh pi@raspberrypi`
 
-5. Update software / firmware  
-```
+3. Update software / firmware  
+```bash
 sudo apt update && \
 sudo apt full-upgrade -y && \
 sudo apt autoremove && \
 sudo apt clean
 ```
 
-~~6. Change default password and timezone~~  
-`sudo raspi-config`
-
-7. Reboot  
+4. Reboot  
 `sudo reboot`
 
 ## Overclock
 1. Open the config file  
 `sudo nano /boot/firmware/config.txt`
 
-2. Uncomment and add the following lines  
+2. Add the following lines  
 ```
 over_voltage=6
 arm_freq=2000
@@ -52,20 +40,16 @@ arm_freq=2000
 2. Add permission to pi user to run docker commands  
 `sudo usermod -aG docker pi`
 
-3. Reboot  
-`sudo reboot`
-
-4. Test docker installation  
+3. Test docker installation  
 `docker run hello-world`
 
-5. Install dependencies for docker-compose  
+4. Install docker-compose (check for [latest version here](https://github.com/docker/compose/releases))  
+```bash
+sudo curl -L https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-`uname -s`-`uname -m` > docker-compose && \
+sudo mv docker-compose /usr/bin/ && \
+sudo chown root: /usr/bin/docker-compose && \
+sudo chmod +x /usr/bin/docker-compose
 ```
-sudo apt install -y libffi-dev libssl-dev && \
-sudo apt install -y python3 python3-pip
-```
-
-6. Install docker-compose  
-`sudo pip3 install docker-compose`
 
 ## Run on startup
 1. Symlink /etc/rc.local to ~  
