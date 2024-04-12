@@ -2,7 +2,7 @@
 The script I use when my raspberry pi turns on.
 
 ## Setup (headless)
-1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/) and flash the latest lite version onto an sdcard or ssd with the following settings:
+1. Install Raspberry Pi Imager from [here](https://www.raspberrypi.org/downloads/) and flash the latest lite version with the following settings:
    - hostname: raspberrypi
    - username & password: pi / pass
    - no wlan
