@@ -9,47 +9,36 @@ The script I use when my raspberry pi turns on.
    - locale: Europe/Bucharest, keyboard: us
    - enable ssh with password authentication
 
-2. SSH into your device  
-`ssh pi@raspberrypi`
+2. SSH into your device `ssh pi@raspberrypi`
 
 3. Update software / firmware  
-```bash
-sudo apt update && \
-sudo apt full-upgrade -y && \
-sudo apt autoremove && \
-sudo apt clean
-```
+    ```bash
+    sudo apt update && \
+    sudo apt full-upgrade -y && \
+    sudo apt autoremove && \
+    sudo apt clean
+    ```
 
-4. Reboot  
-`sudo reboot`
+4. Reboot `sudo reboot`
 
 ## Overclock
-1. Open the config file  
-`sudo nano /boot/firmware/config.txt`
-
-2. Add the following lines  
-```
-over_voltage=6
-arm_freq=2000
-```
+1. Open the config file `sudo nano /boot/firmware/config.txt` and add the following:
+    ```
+    over_voltage=6
+    arm_freq=2000
+    ```
 
 ## Instalation
-1. Install docker  
-`curl -sSL https://get.docker.com | sh`
-
-2. Add permission to pi user to run docker commands  
-`sudo usermod -aG docker pi`
-
-3. Test docker installation  
-`docker run hello-world`
-
+1. Install docker `curl -sSL https://get.docker.com | sh`
+2. Add permission to pi user to run docker commands `sudo usermod -aG docker pi`
+3. Test docker installation `docker run hello-world`
 4. Install docker-compose (check for [latest version here](https://github.com/docker/compose/releases))  
-```bash
-sudo curl -L https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-`uname -s`-`uname -m` > docker-compose && \
-sudo mv docker-compose /usr/bin/ && \
-sudo chown root: /usr/bin/docker-compose && \
-sudo chmod +x /usr/bin/docker-compose
-```
+    ```bash
+    sudo curl -L https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-`uname -s`-`uname -m` > docker-compose && \
+    sudo mv docker-compose /usr/bin/ && \
+    sudo chown root: /usr/bin/docker-compose && \
+    sudo chmod +x /usr/bin/docker-compose
+    ```
 
 ## Run on startup
 1. Symlink /etc/rc.local to ~  
